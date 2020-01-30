@@ -9,25 +9,28 @@
 namespace OOP;
 
 
-class Zoliniai extends Augalai
+class Zoliniai extends Sergamumas
 {
-protected $derlingumas;
-protected $arValgomas;
+    protected $derlingumas;
+    protected $arValgomas;
 
-    public function __construct($grupe, $paplitimas, $derlingumas, $arValgomas)
+    public function __construct($rizikosLygis, $derlingumas, $arValgomas)
     {
-        parent::__construct($grupe, $paplitimas);
-        $this->grupe=$grupe;
-        $this->paplitimas=$paplitimas;
-        $this->derlingumas=$derlingumas;
-        $this->arValgomas;
+        parent::__construct($rizikosLygis);
+        $this->grupe=$derlingumas;
+        $this->paplitimas=$arValgomas;
+        $this->rizikosLygis=$rizikosLygis;
+    }
+
+    public function addLiga($liga)
+    {
+        // TODO: Implement addLiga() method.
     }
 
     public function showGrass(){
-        $katalogas [] = $this->grupe;
-        $katalogas[]=$this->paplitimas;
         $katalogas[]=$this->derlingumas;
         $katalogas[]=$this->arValgomas;
+        $katalogas[]=$this->rizikosLygis;
 
         return $katalogas;
     }

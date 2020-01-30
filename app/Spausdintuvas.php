@@ -13,6 +13,6 @@ class Spausdintuvas
 {
     public static function spausdinti($data){
         foreach ($data as $value)
-        echo ($value);
+        echo ($value ."\n");
     }
 }

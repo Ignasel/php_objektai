@@ -57,7 +57,6 @@ foreach ($users4->profile() as $property):?>
     }
 
 
-
     public function addMarke($marke)
     {
         $this->marke = $marke;

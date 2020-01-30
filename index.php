@@ -1,20 +1,25 @@
 <?php
 require "vendor/autoload.php";
+use OOP\Teacher;
 use OOP\User;
+use OOP\Augalai;
+use OOP\Medziai;
+use OOP\Zoliniai;
+use OOP\Spausdintuvas;
 
 
 $users = new User('Jonas', 'jonas@jonas.lt', '+37064321751' );
 $users->addComment("Nieko nežino apie gamtą");
 $users2 = new User('Petras', 'petras@jonas.lt', '+37068798468');
 $users3 = new User('Kazys', 'kazys@kazlauskas.lt', '++376548745');
+
+$users4 = new Teacher('Grazina','Graziausia@grazina.com','5647874','Lietuviu');
+$users4->addComment("Nuostabi mokytoja iŠ Varėnos");
 foreach ($users->show() as $property):?>
 <li><?=$property?></li>
 <?php endforeach;?>
 
-<?php
-foreach ($users->showComment() as $komentarai):?>
-<li><?=$komentarai?></li>
-<?php endforeach;?>
+<li><?=$users->showComment()?></li>
 
 
 <?php
@@ -27,6 +32,12 @@ foreach ($users2->show() as $property):?>
 foreach ($users3->show() as $property):?>
     <li><?=$property?></li>
 <?php endforeach;?>
+
+<?php
+foreach ($users4->profile() as $property):?>
+    <li><?=$property?></li>
+<?php endforeach;?>
+<li><?=$users4->showComment()?></li>
 
 <?php class Transportas
 {
@@ -167,6 +178,37 @@ foreach ($automobilis1->showTransport() as $datass):?>
 
 
 
+<?php
 
+$augalas1 = new Augalai('Plačiai paplitę','Europa');?>
+<ul>
+    <?php
+foreach ($augalas1->showAugalai() as $augalas):?>
+    <li><?=$augalas?></li>
+<?php endforeach;?>
+</ul>
 
+<?php
 
+$medis1 = new Medziai('Plačiai paplitę','Europa','Meta lapus','Klevas',
+    '2000 m3');?>
+<ul>
+    <?php
+foreach ($medis1->mediena() as $mediena):?>
+    <li><?=$mediena?></li>
+<?php endforeach;?>
+</ul>
+<?php
+$zolinis1 = new Zoliniai('Plačiai paplitę','Europa','500t/ha','ne');?>
+<ul>
+    <?php
+    foreach ($zolinis1->showGrass() as $zolinelis):?>
+        <li><?=$zolinelis?></li>
+    <?php endforeach;?>
+</ul>
+
+<?php
+
+Spausdintuvas::spausdinti($users4->show())
+
+?>

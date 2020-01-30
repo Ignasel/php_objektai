@@ -3,9 +3,9 @@
 namespace OOP;
 
 class User{
-    private $name;
-    private $email;
-    private $phone;
+    protected $name;
+    protected $email;
+    protected $phone;
 
     public function __construct($name, $email, $phone)
     {
@@ -27,7 +27,7 @@ class User{
     }
 
     public function showComment(){
-        $comments[] = $this->comment;
+        $comments = $this->comment;
         return $comments;
     }
 
